@@ -7,6 +7,7 @@ The code in this repo is designed for NLP or at least Machine Learning Task.
 - readme
 - update the code
 - code arrangement
+- vocab, embedding, utils, merge_bidirection_state
 
 ## Requirements
 
