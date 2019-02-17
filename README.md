@@ -4,8 +4,9 @@ The code in this repo is designed for NLP or at least Machine Learning Task.
 
 ## TODO
 
-- LSTM CELL
-- transformer
+- [ ] LSTM CELL
+- [ ] Transformer
+- [ ] word2vec
 
 ## Requirements
 
