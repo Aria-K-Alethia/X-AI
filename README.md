@@ -2,6 +2,25 @@
 A Customized NLP toolkit.
 The code in this repo is designed for NLP or at least Machine Learning Task.  
 
+## Function
+### Modules
+
+Useful modules which could be adopted to your code easily
+
+- multi-layer LSTM
+- Layer Norm
+
+### Preprocess
+
+Common tools that you may use in text processing.
+
+- Vocab, simple but effective vocabulary class
+
+### Misc
+
+- EDS, used to process eds, also includes a method to parse text repr.
+- utils, includes various functions used in NLP, Machine Learning and Deep Learning.
+
 ## TODO
 
 - [ ] LSTM CELL
