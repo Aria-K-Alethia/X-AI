@@ -1,5 +1,5 @@
 '''	
-	Copyright (c) 2019 Aria-K-Alethia@github.com / xindetai@Beihang University
+	Copyright (c) 2019 Aria-K-Alethia@github.com
 
 	Description:
 		stacked rnn for input feeding
