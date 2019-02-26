@@ -3,12 +3,17 @@ A Customized NLP toolkit.
 The code in this repo is designed for NLP or at least Machine Learning Task.  
 
 ## Function
+### Algorithm
+Algorithms used in NLP
+
+- penalty, used in beam search, see the paper <<*Google’s Neural Machine Translation System: Bridging the Gap between Human and Machine Translation*>>
+- Layer Norm
+
 ### Modules
 
 Useful modules which could be adopted to your code easily
 
 - multi-layer LSTM
-- Layer Norm
 - embedding, support pretrained embedding
 - optimizer, simple wrapper of pytorch's optimizer, support learning rate schedule strategy
 
