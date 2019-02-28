@@ -20,6 +20,14 @@ def pickle_dump(data, path):
     with open(path, 'wb') as outfile:
         pickle.dump(data, outfile)
 
+def dict_to_namedtuple(dict_):
+    key = list(dict_.keys())
+    values = list(dict_.values())
+    Option = namedtuple('Option', key)
+    option = Option(*values)
+    return option
+
+
 ################ Text Processing ##################
 def contain_words(sent1, sent2):
     temp1 = nltk.word_tokenize(sent1)
@@ -200,3 +208,38 @@ def mask_sequence(lengths,max_length = None):
             .to(device)
     return mask
 
+def tile(tensor, count, dim = 0):
+    '''
+        overview:
+            tile a tensor on dim
+            count times
+            this method is usually
+            used in beam search
+        example:
+            >>> temp = torch.randn(2, 2)
+            >>> temp2 = tile(temp, 5)
+            >>> temp2 = temp2.view(2, 5, 2)
+            >>> for i in range(2):
+                    assert all(item.equal(temp[i]) for item in temp2[i])
+    '''
+    dims = list(range(tensor.dim()))
+    # if dim is not 0, transpose it to dim 0
+    if dim != 0:
+        dims[0], dims[dim] = dims[dim], dims[0]
+        tensor = tensor.permute(*dims).contiguous()
+    new_shape = list(tensor.shape)
+    new_shape[0] *= count
+    tensor = tensor.unsqueeze(1)
+    shape = [1 if i != 1 else count for i in range(tensor.dim())]
+    tensor = tensor.repeat(*shape).view(*new_shape)
+    # when dim != 0, we need to recover it
+    if dim != 0:
+        tensor = tensor.permute(*dims).contiguous()
+    return tensor
+
+def set_random_seed(seed, gpu = False):
+    if seed > 0:
+        torch.manual_seed(seed)
+        random.seed(seed)
+        if gpu:
+            torch.cuda.manual_seed(seed)
