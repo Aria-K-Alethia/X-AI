@@ -16,6 +16,7 @@ Useful modules which could be adopted to your code easily
 - multi-layer LSTM
 - embedding, support pretrained embedding
 - optimizer, simple wrapper of pytorch's optimizer, support learning rate schedule strategy
+- mlp, multi-layer perceptron, support customized layer number and activation function
 
 ### Preprocess
 
