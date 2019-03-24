@@ -8,6 +8,7 @@ Algorithms used in NLP
 
 - penalty, used in beam search, see the paper <<*Google’s Neural Machine Translation System: Bridging the Gap between Human and Machine Translation*>>
 - Layer Norm
+- EditDistance, useful for many NLP tasks, like spelling correction
 
 ### Modules
 
