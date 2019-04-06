@@ -6,6 +6,9 @@ import torch
 import torch.nn as nn
 import nltk
 import pickle
+import logging
+import random
+from collections import namedtuple
 
 
 ################## Routine #######################
@@ -26,6 +29,30 @@ def dict_to_namedtuple(dict_):
     Option = namedtuple('Option', key)
     option = Option(*values)
     return option
+
+def full_width_to_half_width(string):
+    out = []
+    for c in string:
+        code = ord(c)
+        if code == 12288:
+            out.append(chr(32))
+        elif code >= 65281 and code <= 65374:
+            out.append(chr(code - 0xfee0))
+        else:
+            out.append(c)
+    return ''.join(out)
+
+def half_width_to_full_width(string):
+    out = []
+    for c in string:
+        code = ord(c)
+        if code == 32:
+            out.append(chr(12288))
+        elif code >= 32 and code <= 126:
+            out.append(chr(code + 0xfee0))
+        else:
+            out.append(c)
+    return ''.join(out)
 
 
 ################ Text Processing ##################
