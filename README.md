@@ -31,6 +31,10 @@ Common tools that you may use in text processing.
 - EDS, used to process eds, also includes a method to parse text repr.
 - utils, includes various functions used in NLP, Machine Learning and Deep Learning.
 
+### Data Structure
+
+- Trie, for string matching, also support prefix matching
+
 ## TODO
 
 - [ ] LSTM CELL
