@@ -83,6 +83,31 @@ class Trie(object):
 		else:
 			return out, False
 
+	def match_list(self, string_list):
+		'''
+			overview:
+				match a list
+			return:
+				the maximal index
+				if no match, return -1
+		'''
+		index = -1
+		if not string_list:
+			return index
+		tree = self.tree
+		while index+1 < len(string_list):
+			temp = string_list[index + 1]
+			for c in temp:
+				if c in tree:
+					tree = tree[c]
+				else:
+					break
+			else:
+				index += 1
+				continue
+			break
+		return index
+
 def test():
 	trie = Trie()
 	strings = ['apple', 'app', 'pear', '']
@@ -93,6 +118,7 @@ def test():
 	assert trie.match_prefix('app') == ('app', True)
 	assert trie.match_prefix('peara') == ('pear', True)
 	assert trie.match_prefix('appl') == ('appl', False)
+	assert trie.match_list(['10', ',', '000']) == 2
 
 if __name__ == '__main__':
 	test()
