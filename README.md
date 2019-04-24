@@ -25,6 +25,7 @@ Useful modules which could be adopted to your code easily
 Common tools that you may use in text processing.
 
 - Vocab, simple but effective vocabulary class
+- TextCleaner, useful tool for removing noise in text
 
 ### Misc
 
